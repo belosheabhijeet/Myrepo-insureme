@@ -9,5 +9,10 @@ stages {
         git 'https://github.com/belosheabhijeet/Myrepo-insureme.git'
            }
        }   
+   stage('Build Package') {
+       steps {
+         sh 'maven package'
+       }
   }
+}
 }
