@@ -26,8 +26,8 @@ stages {
                                }
    stage('Push the images to dockerhub') {
      steps {
-       withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'docker_password', usernameVariable: 'docker_user')]) {
-         sh 'docker login -u ${docker_user}' -p${docker_password}
+         withCredentials([usernamePassword(credentialsId: 'docker-hub1', passwordVariable: 'docker_password', usernameVariable: 'docker_user')]) {  
+        sh 'docker login -u ${docker_user}' -p ${docker_password}
         }
       }
    }
