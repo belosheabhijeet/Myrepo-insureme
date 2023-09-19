@@ -24,5 +24,12 @@ stages {
         sh 'docker build -t belosheabhijeet/insure-me-app:1.0 .'
             }
                                }
+   stage('Push the images to dockerhub') {
+     steps {
+       withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'docker_password', usernameVariable: 'docker_user')]) {
+         sh 'docker login -u ${docker_user}' -p${docker_password}
         }
       }
+   }
+}
+}
