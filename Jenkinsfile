@@ -32,5 +32,10 @@ stages {
         sh 'docker push belosheabhijeet/insure-me-app:1.0'
       }
    }
+   stage('Application Deploy Container') {
+     steps {
+     ansiblePlaybook become: true, credentialsId: 'SSH-Key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'prod.inv', playbook: 'deploy.yml'
+}
+}
 }
 }
